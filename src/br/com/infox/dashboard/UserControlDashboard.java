@@ -71,8 +71,15 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
                     limparCamposUser();
                 }
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+        } catch (java.sql.SQLIntegrityConstraintViolationException e) {
+            
+            JOptionPane.showMessageDialog(null, "Este Id Nº já ésta sendo utilizado, utilize o botão pesquisar para encontrar um Id Nº vazio");
+            limparCamposUser();
+            // System.out.println(e);
+        } catch(Exception e2) {
+            JOptionPane.showMessageDialog(null,e2); 
+        
+            
         }
     }
 

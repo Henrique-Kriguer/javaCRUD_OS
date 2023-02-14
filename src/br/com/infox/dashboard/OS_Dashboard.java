@@ -89,6 +89,9 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
         txtOsPecas.setText(null);
         txtOsTot.setText(null);
         txtCliId.setText(null);
+        txtOs.setText(null);
+        txtData.setText(null);
+        
     }
 
     private void pesquisar_os() {
@@ -128,10 +131,13 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
                 
                 // Esttabelecendo não visivel a tabela de cliente pesquisado:
                 tblClientes.setVisible(false);
-                
-               
+                              
             } else {
                 JOptionPane.showMessageDialog(null, "OS não cadastrada");
+                limpar_Campos();
+                btnOsCreate.setEnabled(true);
+                txtCliPesquisar.setEnabled(true);
+                tblClientes.setVisible(true);
             }
         } catch (java.sql.SQLSyntaxErrorException e) {
             JOptionPane.showMessageDialog(null, "O Campo Número de OS não permite letras. Tente novamente");
