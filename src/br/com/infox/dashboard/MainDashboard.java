@@ -109,6 +109,11 @@ public class MainDashboard extends javax.swing.JFrame {
         menRelSer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         menRelSer.setText("Relatório de Serviços");
         menRelSer.setEnabled(false);
+        menRelSer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menRelSerActionPerformed(evt);
+            }
+        });
         menRel.add(menRelSer);
 
         menRelCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
@@ -247,6 +252,24 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_menRelCliActionPerformed
+
+    private void menRelSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menRelSerActionPerformed
+        // Grando um relatório de serviços
+         int confirmaPrint = JOptionPane.showConfirmDialog(null, "Confirma a "
+                + "impressão de relatório de OS ? ", "Atenção",JOptionPane.YES_NO_OPTION);
+        if (confirmaPrint ==0 ){
+            // imprimir relatório com o framework JasperReports
+            try {
+                // Usando a classe JasperPrint para preparar a impressão de um relatório
+                JasperPrint print = JasperFillManager.fillReport("C:\\Development\\"
+                        + "Projeto_Java\\serviceOrderManagement\\reports\\Servicos.jasper",null,conexao );
+                // a linha abaixo exibe o relatório atraves da classe JasperViewer
+                JasperViewer.viewReport(print, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }                                      
+    }//GEN-LAST:event_menRelSerActionPerformed
 
     /**
      * @param args the command line arguments
