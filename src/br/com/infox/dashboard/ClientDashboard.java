@@ -293,7 +293,7 @@ public class ClientDashboard extends javax.swing.JInternalFrame {
                             .addComponent(txtCliSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(27, 27, 27)
                             .addComponent(jLabel6)
-                            .addGap(51, 51, 51)
+                            .addGap(34, 34, 34)
                             .addComponent(jLabel1))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
