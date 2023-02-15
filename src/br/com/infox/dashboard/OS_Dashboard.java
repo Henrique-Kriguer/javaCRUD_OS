@@ -143,19 +143,14 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
                         txtOsPecas.setText(rs.getString(10));
                         txtOsTot.setText(rs.getString(11));
                         txtCliId.setText(rs.getString(12));
-
                         btnOsUpdate.setEnabled(true);
                         btnOsDelete.setEnabled(true);
-
                         // desativar o botao adcionar para evitar duplicidade quando estiver na pesquisa:
                         btnOsCreate.setEnabled(false);
-
                         // desativando o campo de pesquisa de cliente durante a pesquisa de OS para evitar troca do IdCli
                         txtCliPesquisar.setEnabled(false);
-
                         // Esttabelecendo não visivel a tabela de cliente pesquisado:
                         tblClientes.setVisible(false);
-
             } else {
                 JOptionPane.showMessageDialog(null, "Não há OS com este número");
                 limpar_Campos();
