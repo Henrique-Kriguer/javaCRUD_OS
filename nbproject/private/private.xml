@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/ClientDashboard.java</file>
             <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/UserControlDashboard.java</file>
+            <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/LoginDashboard.java</file>
             <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/MainDashboard.java</file>
             <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dal/ModuloConexao.java</file>
             <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/OS_Dashboard.java</file>
+            <file>file:/C:/Development/Projeto_Java/serviceOrderManagement/serviceOrder/src/br/com/infox/dashboard/AboutDashboard.java</file>
         </group>
     </open-files>
 </project-private>

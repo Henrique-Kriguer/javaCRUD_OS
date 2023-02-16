@@ -7,7 +7,7 @@ package br.com.infox.dashboard;
 
 /**
  *
- * @author henri
+ * @author Henrique Kriguer
  */
 public class AboutDashboard extends javax.swing.JFrame {
 

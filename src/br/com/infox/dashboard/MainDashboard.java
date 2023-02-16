@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package br.com.infox.dashboard;
+/**
+ * Metodo responsavel em exibir a tela principal do programa em JavaSwing.
+ * 
+ * @author Henrique Kriguer
+ */
 
 import br.com.infox.dal.ModuloConexao;
 import java.text.DateFormat;
@@ -244,8 +249,8 @@ public class MainDashboard extends javax.swing.JFrame {
             // imprimir relatório com o framework JasperReports
             try {
                 // Usando a classe JasperPrint para preparar a impressão de um relatório
-                JasperPrint print = JasperFillManager.fillReport("C:\\Development\\"
-                        + "Projeto_Java\\serviceOrderManagement\\reports\\Clientes.jasper",null,conexao );
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/Clientes.jasper"),null,conexao );
+
                 // a linha abaixo exibe o relatório atraves da classe JasperViewer
                 JasperViewer.viewReport(print, false);
             } catch (Exception e) {
@@ -262,8 +267,8 @@ public class MainDashboard extends javax.swing.JFrame {
             // imprimir relatório com o framework JasperReports
             try {
                 // Usando a classe JasperPrint para preparar a impressão de um relatório
-                JasperPrint print = JasperFillManager.fillReport("C:\\Development\\"
-                        + "Projeto_Java\\serviceOrderManagement\\reports\\Servicos.jasper",null,conexao );
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/servicos.jasper"),null,conexao );
+                
                 // a linha abaixo exibe o relatório atraves da classe JasperViewer
                 JasperViewer.viewReport(print, false);
             } catch (Exception e) {

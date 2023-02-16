@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.infox.dashboard;
 
 import java.sql.*;
@@ -15,8 +11,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
- * @author henri
+ *Método responsável em fazer a manutenção (CRUD) dos serviços no BD.
+ * @author Henrique Kriguer
  */
 public class OS_Dashboard extends javax.swing.JInternalFrame {
 
@@ -263,8 +259,7 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
                 HashMap filtro = new HashMap();
                 filtro.put("os",Integer.parseInt(txtOs.getText()));
                 // Usando a classe JasperPrint para preparar a impressão de um relatório
-                JasperPrint print = JasperFillManager.fillReport("C:\\Development\\"
-                        + "Projeto_Java\\serviceOrderManagement\\reports\\OrderServiceDetails.jasper",filtro,conexao );
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/OrderServiceDetails.jasper"),filtro,conexao );
                 // a linha abaixo exibe o relatório atraves da classe JasperViewer
                 JasperViewer.viewReport(print, false);
             } catch (Exception e) {

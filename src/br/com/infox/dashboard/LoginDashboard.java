@@ -1,4 +1,9 @@
 package br.com.infox.dashboard;
+/**
+ * Método para Autenticar acesso de usuário na aplicação.
+ * 
+ *  @author henrique Kriguer
+ */
 
 import java.sql.*;
 import br.com.infox.dal.ModuloConexao;

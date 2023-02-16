@@ -10,8 +10,9 @@ import br.com.infox.dal.ModuloConexao;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author henri
+ *Método responsável em fazer a manutenção (CRUD) dos usuários no BD.
+ * 
+ * @author Henrique Kriguer
  */
 public class UserControlDashboard extends javax.swing.JInternalFrame {
 

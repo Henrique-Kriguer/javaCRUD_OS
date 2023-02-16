@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
- * 10/2/2023
+ * Método responsável em fazer a manutenção (CRUD) do Cadastro de Clientes.
  *
  * @author Henrique Kriguer
  */
