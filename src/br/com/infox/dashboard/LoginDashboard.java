@@ -19,7 +19,7 @@ public class LoginDashboard extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from tbusers where login = ? and passwrd = ? ";
+        String sql = "select * from tbusuarios where login = ? and senha = ? ";
         try {
             /*as linhas abaixo preparam a consulta ao BD em função do que foi 
         digitado nas caixas de texto ( armazenado na variavel pst, o sinal de interrogação é substituido 

@@ -5,10 +5,10 @@ import java.sql.*;
 import br.com.infox.dal.ModuloConexao;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
+//import net.proteanit.sql.DbUtils;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *Método responsável em fazer a manutenção (CRUD) dos serviços no BD.
@@ -36,8 +36,8 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
 
     private void pesquisarClient() {
        
-        String sql = "select idclient as Id, nameclient as Nome, phoneclient as "
-                + "Fone from tbclients where nameclient like ? ";
+        String sql = "select idclient as Id, nome_cliente as Nome, fone_cliente as "
+                + "Fone from tbclientes where nome_cliente like ? ";
         
         try {
             pst = conexao.prepareStatement(sql);
@@ -57,8 +57,8 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
     }
 
     private void emitir_os() {
-        String sql = "insert into tbOrderService"
-                + "(tipo,situacao,equipment,defect,service,tecnichian,hs_mo,"
+        String sql = "insert into tbos"
+                + "(tipo,situacao,equipamento,defeito,servico,tecnico,hs_mo,"
                 + "spareParts_value,service_value,idclient)"
                 + "values(?,?,?,?,?,?,?,?,?,?)";
         try {
@@ -136,7 +136,7 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
     private void pesquisar_os() {
         // a linha abaixo cria uma caixa de entrada do tipo JOptionPane
         String num_os = JOptionPane.showInputDialog("Número da OS");
-        String sql = "select os, date_format(data_os,'%d/%m/%Y - %H:%i'),tipo,situacao,equipment,defect,service,tecnichian, hs_mo, spareParts_value, service_value, idclient from tbOrderService where os = " + num_os;
+        String sql = "select os, date_format(data_os,'%d/%m/%Y - %H:%i'),tipo,situacao,equipamento,defeito,servico,tecnico, hs_mo, mo_valor, pecas_value, idcliente from tbos where os = " + num_os;
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -186,8 +186,8 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
     }
 
     private void atualizar_os() {
-        String sql = "update tbOrderService set tipo = ?, situacao = ?, equipment = ?, "
-                + "defect = ?, service = ?, tecnichian = ?, hs_mo = ?, spareParts_value = ?, service_value = ? where os = ? ";
+        String sql = "update tbos set tipo = ?, situacao = ?, equipamento = ?, "
+                + "defeito = ?, servico = ?, tecnico = ?, hs_mo = ?, pecas_value = ?, value = ? where os = ? ";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, tipo);
@@ -259,9 +259,9 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
                 HashMap filtro = new HashMap();
                 filtro.put("os",Integer.parseInt(txtOs.getText()));
                 // Usando a classe JasperPrint para preparar a impressão de um relatório
-                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/OrderServiceDetails.jasper"),filtro,conexao );
+              //  JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/OrderServiceDetails.jasper"),filtro,conexao );
                 // a linha abaixo exibe o relatório atraves da classe JasperViewer
-                JasperViewer.viewReport(print, false);
+             //   JasperViewer.viewReport(print, false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }

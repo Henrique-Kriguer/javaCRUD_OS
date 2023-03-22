@@ -15,9 +15,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.view.JasperViewer;
 
 public class MainDashboard extends javax.swing.JFrame {
 
@@ -240,7 +240,7 @@ public class MainDashboard extends javax.swing.JFrame {
         os.setVisible(true);
         desktop.add(os);
     }//GEN-LAST:event_menCadOsActionPerformed
-
+/*
     private void menRelCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menRelCliActionPerformed
         // Gerando um relatório de clientes
         int confirmaPrint = JOptionPane.showConfirmDialog(null, "Confirma a "
@@ -276,7 +276,7 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         }                                      
     }//GEN-LAST:event_menRelSerActionPerformed
-
+*/
     /**
      * @param args the command line arguments
      */

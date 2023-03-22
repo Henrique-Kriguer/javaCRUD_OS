@@ -26,7 +26,7 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
     }
 
     private void consultar() {
-        String sql = "select * from tbusers where iduser = ?";
+        String sql = "select * from tbusuarios where iduser = ?";
 
         try {
             pst = conexao.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
     }
 
     private void adicionar() {
-        String sql = "insert into tbusers (iduser,userdb,phone,login,passwrd,profile)"
+        String sql = "insert into tbusuarios (iduser,ususario,fone,login,senha,profile)"
                 + " values(?,?,?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
     }
 
     private void alterar() {
-        String sql = "update tbusers set userdb=?, phone=?, login=?, passwrd=?,"
+        String sql = "update tbusuarios set iduser=?, fone=?, login=?, senha=?,"
                 + " profile=? where iduser=?";
         try {
             pst = conexao.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
         System.out.println(confirma);
 
         if (confirma == 0) {
-            String sql = "delete from tbusers where iduser=?";
+            String sql = "delete from tbusuarios where iduser=?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, txtUserId.getText());
@@ -293,11 +293,12 @@ public class UserControlDashboard extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtUserPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtUserPho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboUserPerf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cboUserPerf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtUserPho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUserRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

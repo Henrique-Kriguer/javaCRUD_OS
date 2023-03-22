@@ -23,7 +23,7 @@ public class ClientDashboard extends javax.swing.JInternalFrame {
     }
 
     private void adicionar() {
-        String sql = "insert into tbclients (nameclient,adressclient,phoneclient,emailclient) "
+        String sql = "insert into tbclientes (nome_cliente,end_cliente,fone_cliente,email_cliente) "
                 + "values (?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
@@ -49,9 +49,9 @@ public class ClientDashboard extends javax.swing.JInternalFrame {
 
     // método para pesquisar clientes pelo nome ou letra:
     private void pesquisarCliente() {
-        String sql = "select idclient as Id, nameclient as Nome, adressclient as"
-                + " Endereço, phoneclient as Telefone, emailclient as Email from"
-                + " tbclients where nameclient like ?";
+        String sql = "select id_cliente as id_cliente, nome_cliente as Nome, end_cliente as"
+                + " Endereço, fone_cliente as Telefone, email_cliente as Email from"
+                + " tbclientes where nome_cliente like ?";
 
         try {
             pst = conexao.prepareStatement(sql);
@@ -78,8 +78,8 @@ public class ClientDashboard extends javax.swing.JInternalFrame {
     }
 
     public void alterarCliente() {
-        String sql = "update tbclients set nameclient = ?,adressclient = ?,"
-                + " phoneclient = ?, emailclient = ? where idclient = ?";
+        String sql = "update tbclientes set nome_cliente = ?,end_cliente = ?,"
+                + " fone_cliente = ?, email_cliente = ? where id_cliente = ?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCliName.getText());
@@ -109,7 +109,7 @@ public class ClientDashboard extends javax.swing.JInternalFrame {
                 + " que deseja apagar os dados deste cliente? Os dados apagados "
                 + "não poderão ser recuperados !", "Atençao", JOptionPane.YES_NO_OPTION);
         if (confirma == 0) {
-            String sql = "delete from tbclients where idclient = ?";
+            String sql = "delete from tbclientes where id_cliente = ?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, txtCliId.getText());
