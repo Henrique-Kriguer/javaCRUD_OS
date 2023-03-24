@@ -5,10 +5,10 @@ import java.sql.*;
 import br.com.infox.dal.ModuloConexao;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-//import net.proteanit.sql.DbUtils;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.view.JasperViewer;
+import net.proteanit.sql.DbUtils;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *Método responsável em fazer a manutenção (CRUD) dos serviços no BD.
@@ -36,7 +36,7 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
 
     private void pesquisarClient() {
        
-        String sql = "select idclient as Id, nome_cliente as Nome, fone_cliente as "
+        String sql = "select id_cliente as Id, nome_cliente as Nome, fone_cliente as "
                 + "Fone from tbclientes where nome_cliente like ? ";
         
         try {
@@ -59,7 +59,7 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
     private void emitir_os() {
         String sql = "insert into tbos"
                 + "(tipo,situacao,equipamento,defeito,servico,tecnico,hs_mo,"
-                + "spareParts_value,service_value,idclient)"
+                + " pecas_valor,valor,id_cliente)"
                 + "values(?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
@@ -98,7 +98,7 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
     }
     
     private void recuperarNumUltimaOs(){
-        String sql = "select max(os) from tborderservice";
+        String sql = "select max(os) from tbos";
         try {
             pst=conexao.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -259,9 +259,9 @@ public class OS_Dashboard extends javax.swing.JInternalFrame {
                 HashMap filtro = new HashMap();
                 filtro.put("os",Integer.parseInt(txtOs.getText()));
                 // Usando a classe JasperPrint para preparar a impressão de um relatório
-              //  JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/OrderServiceDetails.jasper"),filtro,conexao );
+                 JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/reports/OrderServiceDetails.jasper"),filtro,conexao );
                 // a linha abaixo exibe o relatório atraves da classe JasperViewer
-             //   JasperViewer.viewReport(print, false);
+                 JasperViewer.viewReport(print, false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }

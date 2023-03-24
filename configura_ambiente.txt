@@ -1,0 +1,19 @@
+Instalar antes:
+1. JDK 1.8 - OpenJDK8U-jdk_x64_windows_hotspot_8u362b09
+
+2- JSE 1.7 - https://www.oracle.com/br/java/technologies/javase/javase7-archive-downloads.html
+** instalar somente Development tools **
+
+3 - i-reports 5.6 - www.sourceforge.net/projects/ireport
+*** depois de instalar, abrir bloco de notas como adm e abrir arquivo no caminho:
+C:\Program Files (x86)\Jaspersoft\iReport-5.6.0\etc\ireport.conf
+e apos a linha #jdk colocar o seguinte comando : jdkhome="C:\Program Files\Java\jdk1.7.0_80"
+
+4. - no mySQL workbench criar novo usuário : login: dba ; autenticação : standard ; senha: Krigu3r2022#;Administrative rolls - marca p/ dba todos privilégios;
+
+5. No netbeans, no arquivo ModuloConexao. java , alterar as linhas: 
+ String url = "jdbc:mysql://localhost:3306/service_control?characterEncoding=utf-8"; 
+ String user = "dba";
+ String password = "Krigu3r2022#";
+
+6. Abrir o ireport, e clicar em new datasource, type jdbc; name: Service-order; url, login e senha iguais passo 5;
